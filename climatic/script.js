@@ -1,12 +1,9 @@
-document.addEventListener("DOMContentLoaded", function() {
-    let index = 0;
-    const slides = document.querySelectorAll(".carousel-slide");
-    const totalSlides = slides.length;
-
-    function changeSlide() {
-        index = (index + 1) % totalSlides;
-        document.querySelector(".carousel").style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    setInterval(changeSlide, 5000);  // Cambia cada 5 segundos
+document.addEventListener('DOMContentLoaded', function() {
+    const items = document.querySelectorAll('.carousel-item');
+    let currentItem = 0;
+    const interval = setInterval(() => {
+        items[currentItem].classList.remove('active');
+        currentItem = (currentItem + 1) % items.length;
+        items[currentItem].classList.add('active');
+    }, 5000); // Cambia la imagen cada 5 segundos
 });
